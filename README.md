@@ -34,6 +34,43 @@ ArgumentError: image_id is required for this operation
 
 >> server.destroy # cleanup after yourself or regret it, trust me
 true
+
+![fog](http://geemus.s3.amazonaws.com/fog.png)
+
+fog is the Ruby cloud services library, top to bottom:
+
+* Collections provide a simplified interface, making clouds easier to work with and switch between.
+* Requests allow power users to get the most out of the features of each individual cloud.
+* Mocks make testing and integrating a breeze.
+
+[![Build Status](https://secure.travis-ci.org/fog/fog.png?branch=master)](http://travis-ci.org/fog/fog)
+[![Dependency Status](https://gemnasium.com/fog/fog.png)](https://gemnasium.com/fog/fog)
+[![Code Climate](https://codeclimate.com/github/fog/fog.png)](https://codeclimate.com/github/fog/fog)
+[![Gem Version](https://fury-badge.herokuapp.com/rb/fog.png)](http://badge.fury.io/rb/fog)
+[![Gittip](http://img.shields.io/gittip/geemus.png)](https://www.gittip.com/geemus/)
+
+## Getting Started
+
+The easiest way to learn fog is to install the gem and use the interactive console.
+Here is an example of wading through server creation for Amazon Elastic Compute Cloud:
+
+```
+$ sudo gem install fog
+[...]
+
+$ fog
+
+  Welcome to fog interactive!
+  :default provides [...]
+
+>> server = Compute[:aws].servers.create
+ArgumentError: image_id is required for this operation
+
+>> server = Compute[:aws].servers.create(:image_id => 'ami-5ee70037')
+<Fog::AWS::EC2::Server [...]>
+
+>> server.destroy # cleanup after yourself or regret it, trust me
+true
 ```
 
 ## Ruby 1.8.7
